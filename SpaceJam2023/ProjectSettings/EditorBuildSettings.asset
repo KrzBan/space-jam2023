@@ -6,7 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/VechicleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/Level1.unity
+    guid: 3bcc3cf19108e4942bdfcf2520c5a115
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 8113efd424e8742418d22989df189e7c
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: b55cd07a0a65ed14fa194def2ae81d26
+  - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: 464cad9917eed4e46a4b9fae8fb11331
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

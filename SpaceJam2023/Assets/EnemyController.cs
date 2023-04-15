@@ -20,6 +20,9 @@ public class EnemyController : MonoBehaviour
 
     private Material mat;
     private Rigidbody2D rb;
+    private GameManager gm;
+
+    private bool dead = false;
 
     [Range(-1.0f, 1.0f)]
     public float cutoffPoint = 1.0f;
@@ -28,34 +31,43 @@ public class EnemyController : MonoBehaviour
         mat = GetComponent<SpriteRenderer>().material;
         rb = GetComponent<Rigidbody2D>();
         health = maxHealth;
+
+        gm = GameManager.instance;
+    }
+
+    private void Start() {
+        RotateTowardsPlayer();
     }
 
     void Update() {
+        //mat.SetFloat("_Cutoff_Height", cutoffPoint);
+
+        if (dead || gm.combatOn == false) return;
+
+        RotateTowardsPlayer();
+
+        // Random Movement
+        var randomDir = Random.insideUnitCircle;
+        rb.AddForce(randomDir * moveStrength * Time.fixedDeltaTime);
+        rb.AddForce(-rb.velocity.normalized * stoppingStrength * Time.fixedDeltaTime);
+
+        fireTimer += Time.deltaTime;
+        if (fireTimer >= fireRate) {
+            fireTimer = 0f;
+            Shoot();
+        }
+    }
+
+    private void RotateTowardsPlayer() {
         Vector3 norTar = (player.position - transform.position).normalized;
         float angle = Mathf.Atan2(norTar.y, norTar.x) * Mathf.Rad2Deg;
         Quaternion rotation = new Quaternion();
         rotation.eulerAngles = new Vector3(0, 0, angle - 90);
         transform.rotation = rotation;
-
-        var randomDir = Random.insideUnitCircle;
-        rb.AddForce(randomDir * moveStrength * Time.fixedDeltaTime);
-        rb.AddForce(-rb.velocity.normalized * stoppingStrength * Time.fixedDeltaTime);
-
-        mat.SetFloat("_Cutoff_Height", cutoffPoint);
-
-        fireTimer += Time.deltaTime;
-        if (fireTimer >= fireRate)
-        {
-            fireTimer = 0f;
-            Shoot();
-        }
-
     }
 
     private void Shoot()
     {
-        Debug.Log("SHOOTING");
-
         var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
         bullet.GetComponent<Rigidbody2D>().velocity = bulletSpawnPoint.up * bulletSpeed;
     }
@@ -64,9 +76,23 @@ public class EnemyController : MonoBehaviour
         health -= damage;
 
         if(health <= 0){
-            Destroy(gameObject);
+            dead = true;
+            StartCoroutine(DeathRoutine());
+            rb.simulated = false;
             OnEnemyKilled?.Invoke(this);
         }
+    }
+
+    private IEnumerator DeathRoutine()
+    {
+
+        for (float alpha = 1f; alpha >= -1f; alpha -= 0.025f) {
+            cutoffPoint = alpha;
+            mat.SetFloat("_Cutoff_Height", cutoffPoint);
+            yield return new WaitForSeconds(.05f);
+        }
+
+        Destroy(gameObject);
     }
 
 }

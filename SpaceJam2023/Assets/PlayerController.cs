@@ -24,9 +24,13 @@ public class PlayerController : MonoBehaviour
     public float health = 100f;
     public float maxHealth = 100f;
 
+    private GameManager gm;
+
     void Awake() {
         rb = GetComponent<Rigidbody2D>();   
         health = maxHealth;
+
+        gm = GameManager.instance;
     }
 
     void Update() {
@@ -37,6 +41,8 @@ public class PlayerController : MonoBehaviour
     }
 
     void FixedUpdate() {
+        if(gm.combatOn == false) return;
+
         Vector2 forwardForceVec = transform.up * verticalInput * forwardAcceleration * Time.fixedDeltaTime;
         float rotationStrength = lateralForce * Time.fixedDeltaTime;
 
