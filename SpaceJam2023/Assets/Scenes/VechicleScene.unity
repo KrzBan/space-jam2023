@@ -194,7 +194,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7618826385039781131, guid: b39e82a49d2814c4092aaa6bf2d48165, type: 3}
+  m_Sprite: {fileID: -1017339147312054581, guid: 2732d013d62dc59438099b18ccd18b06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -275,12 +275,12 @@ MonoBehaviour:
   forwardAcceleration: 100
   lateralAcceleration: 100
   turnSpeed: 100
-  bodyTurnSpeed: 10
-  maxVelocity: 10
+  bodyTurnSpeed: 5
+  maxVelocity: 5.69
   maxLateralStrength: 200
-  minRotTreshhold: 0.75
+  minRotTreshhold: 1.11
   body: {fileID: 56158916}
-  mapBorder: {fileID: 0}
+  mapBorder: {fileID: 222115758}
 --- !u!50 &214013172
 Rigidbody2D:
   serializedVersion: 4
@@ -665,6 +665,10 @@ PrefabInstance:
     - target: {fileID: 2396519539586777875, guid: d171fd764a14cc8428e87d619bc5959f, type: 3}
       propertyPath: m_Name
       value: Radio
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396519539586777875, guid: d171fd764a14cc8428e87d619bc5959f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2998085386125361910, guid: d171fd764a14cc8428e87d619bc5959f, type: 3}
       propertyPath: m_AnchoredPosition.y
