@@ -14,15 +14,18 @@ public class PlayerController : MonoBehaviour
     public float minRotTreshhold = 1.0f;
     public Transform body;
 
+    public MapBorder mapBorder;
+
     private float horizontalInput = 0.0f;
     private float verticalInput = 0.0f;
 
-    [SerializeField] private float lateralForce = 0.0f;
+    private float lateralForce = 0.0f;
 
     private Rigidbody2D rb;                          
 
-    void Start() {
+    void Awake() {
         rb = GetComponent<Rigidbody2D>();   
+        mapBorder = FindAnyObjectByType<MapBorder>();
     }
 
     void Update() {
@@ -60,5 +63,6 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.fixedDeltaTime);
         }
         
+        transform.position = mapBorder.RestrictPosition(transform.position);
     }
 }
