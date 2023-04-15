@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      enemy_craft_yellow_0: 2655564476171013160
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
