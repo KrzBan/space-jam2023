@@ -21,8 +21,12 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;                          
 
+    public float health = 100f;
+    public float maxHealth = 100f;
+
     void Awake() {
         rb = GetComponent<Rigidbody2D>();   
+        health = maxHealth;
     }
 
     void Update() {
@@ -58,6 +62,14 @@ public class PlayerController : MonoBehaviour
             float angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg - 90f;
             Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.fixedDeltaTime);
+        }
+    }
+
+    public void TakeDamage(float damage){
+        health -= damage;
+
+        if(health <= 0){
+            Destroy(gameObject);
         }
     }
 }
