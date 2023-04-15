@@ -10,6 +10,7 @@ public class Shooting : MonoBehaviour
     public float bulletDamage = 10;
 
     private GameManager gm;
+    public AudioSource fireAudio;
 
     void Awake() { 
         gm = GameManager.instance;
@@ -20,6 +21,8 @@ public class Shooting : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            fireAudio.PlayOneShot(fireAudio.clip);
+            
             var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
             bullet.GetComponent<Rigidbody2D>().velocity = bulletSpawnPoint.up * bulletSpeed;
         }

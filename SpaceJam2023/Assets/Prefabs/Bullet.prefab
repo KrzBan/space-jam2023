@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2396650126061385981}
   - component: {fileID: 4476945205998532863}
   - component: {fileID: 7293452670846935902}
-  - component: {fileID: 4331973486670309061}
   - component: {fileID: 893273075157385061}
+  - component: {fileID: 880134550922714635}
   m_Layer: 8
   m_Name: Bullet
   m_TagString: Untagged
@@ -29,11 +29,11 @@ Transform:
   m_GameObject: {fileID: 8112132354102145827}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.2, y: 0.284, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.16, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4476945205998532863
 SpriteRenderer:
@@ -114,8 +114,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &4331973486670309061
-CircleCollider2D:
+--- !u!114 &893273075157385061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8112132354102145827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47302d4ccb709dc46b2ffed98755c6d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
+  sparks: {fileID: 7990804102602441702, guid: 9ea6d8febae0bc34b9e4b777084313b3, type: 3}
+--- !u!70 &880134550922714635
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -149,18 +163,5 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
---- !u!114 &893273075157385061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8112132354102145827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47302d4ccb709dc46b2ffed98755c6d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 50
-  sparks: {fileID: 7990804102602441702, guid: 9ea6d8febae0bc34b9e4b777084313b3, type: 3}
+  m_Size: {x: 1, y: 0.99999994}
+  m_Direction: 0

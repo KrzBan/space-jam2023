@@ -21,6 +21,7 @@ public class EnemyController : MonoBehaviour
     private Material mat;
     private Rigidbody2D rb;
     private GameManager gm;
+    private AudioSource audio;
 
     private bool dead = false;
 
@@ -33,6 +34,7 @@ public class EnemyController : MonoBehaviour
         health = maxHealth;
 
         gm = GameManager.instance;
+        audio = GetComponent<AudioSource>();
     }
 
     private void Start() {
@@ -53,7 +55,7 @@ public class EnemyController : MonoBehaviour
 
         fireTimer += Time.deltaTime;
         if (fireTimer >= fireRate) {
-            fireTimer = 0f;
+            fireTimer = Random.Range(0.0f, 0.5f);
             Shoot();
         }
     }
@@ -68,6 +70,8 @@ public class EnemyController : MonoBehaviour
 
     private void Shoot()
     {
+        audio.pitch = Random.Range(0.90f, 1.05f);
+        audio.Play();
         var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
         bullet.GetComponent<Rigidbody2D>().velocity = bulletSpawnPoint.up * bulletSpeed;
     }

@@ -18,9 +18,12 @@ public class TextManager : MonoBehaviour
     private bool blockInput = false;
     private GameManager gm;
 
+    private AudioSource audio;
+
     private void Awake()
     {
         gm = GameManager.instance;
+        audio = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -31,6 +34,8 @@ public class TextManager : MonoBehaviour
     {
         if(windowActive && blockInput == false && Input.GetMouseButtonDown(0))
         {
+            audio.pitch = Random.Range(0.90f, 0.95f);
+            audio.Play();
             NextLine();
         }
     }

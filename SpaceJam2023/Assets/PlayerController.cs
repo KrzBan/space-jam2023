@@ -26,6 +26,10 @@ public class PlayerController : MonoBehaviour
 
     private GameManager gm;
 
+    public AudioSource engineAudio;
+    public float engineVolume = 1.0f;
+
+
     void Awake() {
         rb = GetComponent<Rigidbody2D>();   
         health = maxHealth;
@@ -38,10 +42,12 @@ public class PlayerController : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
 
         lateralForce = Mathf.Clamp(horizontalInput * lateralAcceleration, -maxLateralStrength, maxLateralStrength);
+
+        engineAudio.volume = (rb.velocity.magnitude / maxVelocity) * engineVolume;
     }
 
     void FixedUpdate() {
-        if(gm.combatOn == false) return;
+        if (gm.combatOn == false) return;
 
         Vector2 forwardForceVec = transform.up * verticalInput * forwardAcceleration * Time.fixedDeltaTime;
         float rotationStrength = lateralForce * Time.fixedDeltaTime;
