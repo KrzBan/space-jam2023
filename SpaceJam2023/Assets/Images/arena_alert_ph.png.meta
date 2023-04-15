@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6074485aee423ac4e8624bba3af353b4
+guid: b53b9ff3320ee634fb7315d31ec01c60
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4283282542407399185
-    second: arena_alert_0
+      213: -6488468297228645966
+    second: arena_alert_ph_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -40,9 +40,9 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -122,7 +122,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: arena_alert_0
+      name: arena_alert_ph_0
       rect:
         serializedVersion: 2
         x: 0
@@ -136,8 +136,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fe8cc23b839be84c0800000000000000
-      internalID: -4283282542407399185
+      spriteID: 2b98d47067454f5a0800000000000000
+      internalID: -6488468297228645966
       vertices: []
       indices: 
       edges: []
@@ -152,8 +152,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      arena_alert_0: -4283282542407399185
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

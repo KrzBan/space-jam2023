@@ -61,5 +61,5 @@ Material:
     - _EffectSpeed: 0.5
     - _ScrollSpeed: 0.76
     m_Colors:
-    - _EffectTiling: {r: 0.15, g: 1, b: 0, a: 0}
+    - _EffectTiling: {r: 0.75, g: 3.24, b: 0, a: 0}
   m_BuildTextureStacks: []
