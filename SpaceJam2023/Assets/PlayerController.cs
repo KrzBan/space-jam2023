@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput = 0.0f;
     private float verticalInput = 0.0f;
 
-    private float lateralForce = 0.0f;
+    [SerializeField] private float lateralForce = 0.0f;
 
     private Rigidbody2D rb;                          
 
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
 
-        lateralForce = Mathf.Clamp(lateralForce + horizontalInput * lateralAcceleration, -maxLateralStrength, maxLateralStrength);
+        lateralForce = Mathf.Clamp(horizontalInput * lateralAcceleration, -maxLateralStrength, maxLateralStrength);
     }
 
     void FixedUpdate() {
