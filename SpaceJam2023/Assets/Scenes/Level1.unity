@@ -432,6 +432,10 @@ PrefabInstance:
       propertyPath: m_text
       value: CHANGE ME
       objectReference: {fileID: 0}
+    - target: {fileID: 4421557988428315634, guid: d171fd764a14cc8428e87d619bc5959f, type: 3}
+      propertyPath: playerSpaceship
+      value: 
+      objectReference: {fileID: 2141879959}
     - target: {fileID: 5189532069760313360, guid: d171fd764a14cc8428e87d619bc5959f, type: 3}
       propertyPath: m_Sprite
       value: 
