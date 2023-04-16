@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      battleship_yellow_0: -3890436440325698655
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

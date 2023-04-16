@@ -31,7 +31,7 @@ public class TextManager : MonoBehaviour
     }
     void Update()
     {
-        if(windowActive && blockInput == false && Input.GetMouseButtonDown(0))
+        if (windowActive && blockInput == false && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)))
         {
             speechAudio.pitch = Random.Range(0.90f, 0.95f);
             NextLine();
