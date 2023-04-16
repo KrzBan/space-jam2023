@@ -104,8 +104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  moveStrength: 1
-  stoppingStrength: 0.5
+  moveStrength: 100
+  stoppingStrength: 1
   health: 100
   maxHealth: 100
   bulletSpawnPoint: {fileID: 2310588077799153120}
