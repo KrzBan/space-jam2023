@@ -25,8 +25,7 @@ public class EnemyController : MonoBehaviour
 
     private bool dead = false;
 
-    [Range(-1.0f, 1.0f)]
-    public float cutoffPoint = 1.0f;
+    private float cutoffPoint = 1.75f;
 
     private void Awake() {
         mat = GetComponent<SpriteRenderer>().material;
@@ -90,7 +89,7 @@ public class EnemyController : MonoBehaviour
     private IEnumerator DeathRoutine()
     {
 
-        for (float alpha = 1f; alpha >= -1f; alpha -= 0.025f) {
+        for (float alpha = 1.75f; alpha >= -1.75f; alpha -= 0.025f) {
             cutoffPoint = alpha;
             mat.SetFloat("_Cutoff_Height", cutoffPoint);
             yield return new WaitForSeconds(.05f);

@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         enemies.Remove(enemy);
         if(enemies.Count == 0)
         {
-            Invoke("TriggerSceneEnd", 4);
+            Invoke("TriggerSceneEnd", 5);
         }
     }
 

@@ -207,12 +207,13 @@ MonoBehaviour:
   lateralAcceleration: 100
   turnSpeed: 100
   bodyTurnSpeed: 5
-  maxVelocity: 5.69
+  maxVelocity: 7
   maxLateralStrength: 200
   minRotTreshhold: 1.11
   body: {fileID: 8875063227760790207}
   health: 100
   maxHealth: 100
+  cutoffPoint: 1
   engineAudio: {fileID: 6440113621333565271}
   engineVolume: 0.2
 --- !u!114 &571527867615375425
