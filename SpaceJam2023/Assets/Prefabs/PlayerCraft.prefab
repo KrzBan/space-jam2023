@@ -215,7 +215,7 @@ MonoBehaviour:
   maxHealth: 120
   cutoffPoint: 1
   engineAudio: {fileID: 6440113621333565271}
-  engineVolume: 0.2
+  engineVolume: 0.1
 --- !u!114 &571527867615375425
 MonoBehaviour:
   m_ObjectHideFlags: 0

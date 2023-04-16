@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
         lateralForce = Mathf.Clamp(horizontalInput * lateralAcceleration, -maxLateralStrength, maxLateralStrength);
 
         if(dead == false)
-            engineAudio.volume = (rb.velocity.magnitude / maxVelocity) * engineVolume;
+            engineAudio.volume = (rb.velocity.magnitude / maxVelocity) * engineVolume + 0.05f;
     }
 
     void FixedUpdate() {

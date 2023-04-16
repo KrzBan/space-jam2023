@@ -106,8 +106,8 @@ MonoBehaviour:
   player: {fileID: 0}
   moveStrength: 100
   stoppingStrength: 1
-  health: 100
-  maxHealth: 100
+  health: 120
+  maxHealth: 120
   bulletSpawnPoint: {fileID: 2310588077799153120}
   bulletPrefab: {fileID: 8112132354102145827, guid: ff5c895568bf59a4da16771e12501f56, type: 3}
   fireRate: 1.2

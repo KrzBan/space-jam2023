@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    [ContextMenu("Do Something")]
+    [ContextMenu("Next Scene")]
     public void TriggerSceneEnd()
     {
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1; 
