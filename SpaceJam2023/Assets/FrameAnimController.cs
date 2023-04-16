@@ -7,11 +7,13 @@ public class FrameAnimController : MonoBehaviour
     private GameManager gm;
     private TextManager tm;
     private Animator animator;
+    private AudioSource audio;
 
     void Awake() {
         gm = GameManager.instance;
         tm = gm.GetComponent<TextManager>();
         animator = GetComponent<Animator>();
+        audio = GetComponent<AudioSource>();
     }
 
     public void TriggerCutsceneStart()
@@ -38,5 +40,10 @@ public class FrameAnimController : MonoBehaviour
     public void DisableWindow()
     {
         tm.windowActive = false;
+    }
+
+    public void PlayNotification()
+    {
+        audio.Play();
     }
 }

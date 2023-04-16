@@ -18,12 +18,11 @@ public class TextManager : MonoBehaviour
     private bool blockInput = false;
     private GameManager gm;
 
-    private AudioSource audio;
+    public AudioSource speechAudio;
 
     private void Awake()
     {
         gm = GameManager.instance;
-        audio = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -34,7 +33,7 @@ public class TextManager : MonoBehaviour
     {
         if(windowActive && blockInput == false && Input.GetMouseButtonDown(0))
         {
-            audio.pitch = Random.Range(0.90f, 0.95f);
+            speechAudio.pitch = Random.Range(0.90f, 0.95f);
             NextLine();
         }
     }
@@ -55,7 +54,7 @@ public class TextManager : MonoBehaviour
             StartCoroutine(Typing(index));
 
             if(index != 0)
-                audio.Play();
+                speechAudio.Play();
 
             index++;
         }
@@ -69,8 +68,6 @@ public class TextManager : MonoBehaviour
     {
         gm.TriggerCutsceneEnd();
     }
-
-    
 
 
 }
