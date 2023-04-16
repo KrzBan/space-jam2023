@@ -35,7 +35,6 @@ public class TextManager : MonoBehaviour
         if(windowActive && blockInput == false && Input.GetMouseButtonDown(0))
         {
             audio.pitch = Random.Range(0.90f, 0.95f);
-            audio.Play();
             NextLine();
         }
     }
@@ -54,6 +53,9 @@ public class TextManager : MonoBehaviour
         if (index < dialog.Length) {
             text.text = "";
             StartCoroutine(Typing(index));
+
+            if(index != 0)
+                audio.Play();
 
             index++;
         }

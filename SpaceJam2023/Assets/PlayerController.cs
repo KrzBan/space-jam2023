@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -26,15 +28,20 @@ public class PlayerController : MonoBehaviour
 
     private GameManager gm;
 
+    private Material mat;
+    [Range(-1.0f, 1.0f)]
+    public float cutoffPoint = 1.0f;
+
     public AudioSource engineAudio;
     public float engineVolume = 1.0f;
 
-
+    private bool dead = false;
     void Awake() {
         rb = GetComponent<Rigidbody2D>();   
         health = maxHealth;
 
         gm = GameManager.instance;
+        mat = GetComponentInChildren<SpriteRenderer>().material;
     }
 
     void Update() {
@@ -43,11 +50,12 @@ public class PlayerController : MonoBehaviour
 
         lateralForce = Mathf.Clamp(horizontalInput * lateralAcceleration, -maxLateralStrength, maxLateralStrength);
 
-        engineAudio.volume = (rb.velocity.magnitude / maxVelocity) * engineVolume;
+        if(dead == false)
+            engineAudio.volume = (rb.velocity.magnitude / maxVelocity) * engineVolume;
     }
 
     void FixedUpdate() {
-        if (gm.combatOn == false) return;
+        if (dead || gm.combatOn == false) return;
 
         Vector2 forwardForceVec = transform.up * verticalInput * forwardAcceleration * Time.fixedDeltaTime;
         float rotationStrength = lateralForce * Time.fixedDeltaTime;
@@ -80,8 +88,20 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(float damage){
         health -= damage;
 
-        if(health <= 0){
-            Destroy(gameObject);
+        if(health <= 0 && dead == false){
+            dead = true;
+            gm.TriggerGameOver();
+            StartCoroutine(DeathRoutine());
+        }
+    }
+
+    public IEnumerator DeathRoutine()
+    {
+        for (float alpha = 1f; alpha >= -0.5f; alpha -= 0.025f)
+        {
+            cutoffPoint = alpha;
+            mat.SetFloat("_Cutoff_Height", cutoffPoint);
+            yield return new WaitForSeconds(.05f);
         }
     }
 }

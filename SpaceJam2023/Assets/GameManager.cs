@@ -1,8 +1,10 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,7 +15,9 @@ public class GameManager : MonoBehaviour
 
     public bool combatOn = false;
 
-    public FrameAnimController frameAc;
+    private FrameAnimController frameAc;
+    private GameOverAnimController gameOverAc;
+    private CameraAnimController cameraAc;
 
     void Awake()
     {
@@ -21,6 +25,11 @@ public class GameManager : MonoBehaviour
 
         enemies = new List<EnemyController>();
         enemies.AddRange(FindObjectsByType<EnemyController>(FindObjectsSortMode.None));
+
+
+        frameAc = FindAnyObjectByType<FrameAnimController>();
+        gameOverAc = FindAnyObjectByType<GameOverAnimController>();
+        cameraAc = FindAnyObjectByType<CameraAnimController>();
 
         Invoke("TriggerCutsceneStart", 3);
     }
@@ -54,6 +63,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void RestartScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
+    }
+
     public void TriggerCutsceneStart()
     {
         frameAc.TriggerCutsceneStart();
@@ -64,5 +79,11 @@ public class GameManager : MonoBehaviour
         frameAc.TriggerCutsceneEnd();
     }
 
+    public void TriggerGameOver()
+    {
+        gameOverAc.TriggerGameOver();
+        cameraAc.TriggerCameraZoom();
+        Invoke("RestartScene", 8);
+    }
 
 }
