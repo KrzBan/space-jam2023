@@ -19,7 +19,7 @@ public class Shooting : MonoBehaviour
     {
         if (gm.combatOn == false) return;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             fireAudio.PlayOneShot(fireAudio.clip);
             

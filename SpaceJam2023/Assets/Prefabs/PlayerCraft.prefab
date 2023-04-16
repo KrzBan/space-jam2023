@@ -203,16 +203,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e5aface3cd106a479489b7fd3747f82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardAcceleration: 100
-  lateralAcceleration: 100
+  forwardAcceleration: 120
+  lateralAcceleration: 120
   turnSpeed: 100
   bodyTurnSpeed: 5
-  maxVelocity: 7
-  maxLateralStrength: 200
+  maxVelocity: 6.5
+  maxLateralStrength: 240
   minRotTreshhold: 1.11
   body: {fileID: 8875063227760790207}
-  health: 100
-  maxHealth: 100
+  health: 120
+  maxHealth: 120
   cutoffPoint: 1
   engineAudio: {fileID: 6440113621333565271}
   engineVolume: 0.2

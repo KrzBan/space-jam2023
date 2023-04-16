@@ -54,7 +54,7 @@ public class EnemyController : MonoBehaviour
 
         fireTimer += Time.deltaTime;
         if (fireTimer >= fireRate) {
-            fireTimer = Random.Range(0.0f, 0.5f);
+            fireTimer = Random.Range(0.0f, 0.25f);
             Shoot();
         }
     }
@@ -89,7 +89,7 @@ public class EnemyController : MonoBehaviour
     private IEnumerator DeathRoutine()
     {
 
-        for (float alpha = 1.75f; alpha >= -1.75f; alpha -= 0.025f) {
+        for (float alpha = 1.75f; alpha >= -1.75f; alpha -= 0.05f) {
             cutoffPoint = alpha;
             mat.SetFloat("_Cutoff_Height", cutoffPoint);
             yield return new WaitForSeconds(.05f);

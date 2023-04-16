@@ -90,6 +90,7 @@ public class PlayerController : MonoBehaviour
 
         if(health <= 0 && dead == false){
             dead = true;
+            engineAudio.volume = 0;
             gm.TriggerGameOver();
             StartCoroutine(DeathRoutine());
         }

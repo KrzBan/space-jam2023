@@ -110,10 +110,9 @@ MonoBehaviour:
   maxHealth: 100
   bulletSpawnPoint: {fileID: 2310588077799153120}
   bulletPrefab: {fileID: 8112132354102145827, guid: ff5c895568bf59a4da16771e12501f56, type: 3}
-  fireRate: 1
+  fireRate: 1.2
   bulletSpeed: 10
   bulletDamage: 10
-  cutoffPoint: 1
 --- !u!50 &1596649721423273281
 Rigidbody2D:
   serializedVersion: 4
